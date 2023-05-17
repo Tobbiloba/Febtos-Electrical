@@ -1,5 +1,5 @@
-import icon1 from './icons/engineering.png'
-import icon2 from './icons/electrician2.png'
+import icon1 from '../icons/engineering.png'
+import icon2 from '../icons/electrician2.png'
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 const AboutUs = () => {
     return (
