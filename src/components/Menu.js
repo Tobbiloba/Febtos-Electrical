@@ -8,7 +8,7 @@ import EmailIcon from '@mui/icons-material/Email';
 const Menu = () => {
     const [showMenu, setShowMenu] = useState(false)
     return (
-        <div className="border max-w-screen">
+        <div className="border max-w-screen absolute top-0 w-[100vw]">
             <div className="flex lg:hidden">
                 <div className={`container bg-white flex-row flex z-10 justify-between items-center py-2`}>
                     <div className="flex flex-row">
@@ -20,7 +20,7 @@ const Menu = () => {
                         {showMenu && <CloseIcon className={`${showMenu === true ? 'flex' : 'hidden'}`} style={{ color: '#f97316', fontSize: '28px' }} onClick={() => setShowMenu(false)} />}
                     </div>
                 </div>
-                {showMenu && <div className="flex bg-white flex-col w-[85vw] transition transform ease-in-out delay-150  container justify-evenly h-[100vh] top-0 absolute border">
+                {showMenu && <div className="flex bg-white flex-col w-[85vw] transition transform ease-in-out delay-150  container justify-evenly left-0 h-[100vh] top-0 absolute border">
                     <div></div>
                     <div className="border">
                         <h1 className="text-slate-700 mt-2 text-xl font-bold">HOME</h1>
