@@ -5,7 +5,7 @@ const AboutUs = () => {
     return (
         <div className='bg-white container py-8'>
             <div>
-                <h1 className=' flex justify-center text-xl font-bold italic'>About Us</h1>
+                <h1 className=' flex justify-center text-xl font-bold italic'>About <span className='text-orange-500'>Us</span></h1>
                 <h1 className=' mt-4 font-bold text-2xl text-center text-slate-800'>10 Years of Experience In Giving Best <span className='text-orange-500'>Services</span></h1>
                 <div className=' mt-4'>
                     <h1 className='text-[14px] border-4 border-white border-l-orange-500 pl-2'>Energetically create turnkey "outside the box" thinking with standards compliant applications. Rapidiously</h1>
