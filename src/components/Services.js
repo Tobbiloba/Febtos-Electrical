@@ -38,7 +38,7 @@ const Services = () => {
                         return (
                             <div key={item.id} className='border mt-12'>
                                 <div className='absolute ml-6 p-2 bg-orange-500 border-4 border-orange-500 border-r-blue-950 border-b-blue-950'>
-                                    <img src={item.img} className='w-[65px] h-[65px]' style={{ color: 'white' }} />
+                                    <img src={item.img} className='w-[60px] h-[60px]' style={{ color: 'white' }} />
                                 </div>
                                 <div className='bg-white  mt-8 pt-16  pb-8 px-5'>
                                     <h1 className='font-bold text-xl text-slate-800'>{item.h1}</h1>
