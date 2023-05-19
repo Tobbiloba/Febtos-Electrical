@@ -124,7 +124,7 @@ const Works = () => {
                     >
                         {images.map((item) => (
                             <SwiperSlide key={item.id}>
-                                <img src={item.img} alt={`Work ${item.id}`} className="h-[280px] w-100vw" />
+                                <img src={item.img} alt={`Work ${item.id}`} className="h-[280px] w-[100vw]" />
                             </SwiperSlide>
                         ))}
                         {/* <SwiperSlide>

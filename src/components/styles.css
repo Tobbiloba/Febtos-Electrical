@@ -1,0 +1,6 @@
+.swiper-3d {
+  perspective: 1500px;
+}
+.swiper-pagination {
+  position: relative;
+}
