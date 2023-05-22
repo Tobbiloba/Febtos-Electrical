@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -51,22 +51,37 @@ const Works = () => {
         },
         {
             id: 8,
-            section: 'mechanic',
+            section: 'smart',
             img: 'https://assets.myautoshop.co.nz/info/uploads/2022/05/AutoElec.jpg',
         },
         {
             id: 9,
-            section: 'mechanic',
+            section: 'smart',
             img: 'https://www.amaauto.ae/wp-content/uploads/2022/12/Auto-garage-Dubai-750x465.jpg',
         },
         {
             id: 10,
-            section: 'mechanic',
+            section: 'smart',
             img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqOV8kIUgR0IbjCz9-o39Dnp_vds_LOZQSjaTkRd8aNaT4u3We-aFynZEVa833C1XbVRM&usqp=CAU',
         }
     ]
     const [current, setCurrent] = useState('all');
     const [images, setImages] = useState(object);
+
+    function findSectionsById(section, objectArray) {
+        return objectArray.filter((item) => item.section === section);
+    }
+
+    useEffect(() => {
+        // console.log(current);
+        if (current === 'all') {
+            setImages(object)
+        } else {
+            const filteredImages = findSectionsById(current, object);
+            setImages(filteredImages);
+        }
+
+    }, [current]);
 
     return (
         <div className="container py-8 flex-col">
@@ -127,24 +142,7 @@ const Works = () => {
                                 <img src={item.img} alt={`Work ${item.id}`} className="h-[280px] w-[100vw]" />
                             </SwiperSlide>
                         ))}
-                        {/* <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                        </SwiperSlide> */}
+
                     </Swiper>
                 </div>
             </div>
