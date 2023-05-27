@@ -5,7 +5,9 @@ import Services from "./components/Services";
 import Works from "./components/Works";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 function App() {
   return (
     <div className="">
