@@ -1,12 +1,13 @@
 import icon1 from '../icons/engineering.png'
 import icon2 from '../icons/electrician2.png'
 import DoneAllIcon from '@mui/icons-material/DoneAll';
+import AOS from 'aos'
 const AboutUs = () => {
     return (
-        <div className='bg-white container py-8'>
-            <div>
-                <h1 className=' flex justify-center text-xl font-bold italic'>About <span className='text-orange-500'>Us</span></h1>
-                <h1 className=' mt-4 font-bold text-2xl text-center text-slate-800'>10 Years of Experience In Giving Best <span className='text-orange-500'>Services</span></h1>
+        <div className='bg-white px-[1rem]  lg:px-[17.5vw] md:px-[2.2rem] py-8 flex flex-col md:flex-row lg:flex-row'>
+            <div data-aos="fade-right">
+                <h1 className=' flex justify-center text-xl lg:justify-start md:justify-start font-bold italic'>About <span className='text-orange-500'>Us</span></h1>
+                <h1 className=' mt-4 font-bold text-2xl text-center lg:text-left lg:mt-8mt-6 md:text-3xl md:w-[400px] md: lg:text-4xl lg:w-[550px] text-slate-800'>10 Years of Experience In Giving Best <span className='text-orange-500'>Services</span></h1>
                 <div className=' mt-4'>
                     <h1 className='text-[14px] border-4 border-white border-l-orange-500 pl-2'>Energetically create turnkey "outside the box" thinking with standards compliant applications. Rapidiously</h1>
                 </div>
@@ -42,7 +43,7 @@ const AboutUs = () => {
                     <button className="bg-orange-500 border-4 w-fit border-white text-white font-bold px-2 py-1 mt-3 border-r-slate-800 border-b-slate-800">Learn More</button>
                 </div>
             </div>
-            <div className='border-4 border-white border-r-orange-500 border-b-orange-500 mt-8'>
+            <div className='border-4 border-white border-r-orange-500 border-b-orange-500 mt-8 md:w-[120%]' data-aos="fade-left">
                 <img src="https://i0.wp.com/nyscinfo.com/wp-content/uploads/2021/06/Electrician-Dubai.jpg?fit=914%2C708&ssl=1" />
             </div>
         </div>

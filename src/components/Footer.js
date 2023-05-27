@@ -3,16 +3,18 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
+import AOS from 'aos';
 const Footer = () => {
     return (
-        <div className='flex flex-col bg-sky-950 py-6 '>
-            <div className='container'>
-                <div>
+        <div className='flex flex-col bg-sky-950 py-6 ' data-aos="fade-in">
+            <div className='px-[1rem] md:px-[2.2rem] lg:px-[15vw] flex flex-col md:flex-row md:flex-wrap lg:justify-between lg:flex-row'>
+                <div className=' '>
                     <div className="flex flex-row">
                         <ElectricMeterIcon style={{ color: '#f97316', fontSize: '28px' }} />
                         <h1 className="text-xl ml-1 font-bold text-white">Feb<span className="text-orange-500">Tos</span></h1>
                     </div>
-                    <p className='mt-3 text-white text-[12px] w-[70vw]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+                    <p className='mt-3 text-white text-[12px] w-[70vw] lg:w-[350px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
                     <div className='flex flex-row mt-4'>
                         <div className='border border-orange-500 px-2 py-2 mr-3 rounded-xl bg-white'>
                             <WhatsAppIcon style={{ color: '#f97316', fontSize: '24px' }} />
@@ -28,7 +30,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='mt-6'>
+                <div className='mt-6 md:mr-6 lg:mt-0 md:ml-6 '>
                     <h1 className='text-white text-xl font-mono font-bold'>Contact Info</h1>
                     <div>
                         <div className='mt-2 flex flex-row items-center'>
@@ -46,7 +48,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className='text-white mt-4 text-xl font-mono font-bold'>Our Services</h1>
+                    <h1 className='text-white mt-4 lg:mt-0 text-xl md:mt-6 md:mr-6 font-mono font-bold'>Our Services</h1>
                     <div>
                         <ul>
                             <li className='text-[12px] text-white mt-2 ml-3'>Electrician Services</li>
@@ -55,7 +57,7 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div>
+                <div className='md:mt-4 md:ml-6 lg:mt-0'>
                     <h1 className='text-white text-xl font-mono font-bold mt-4'>Recent Posts</h1>
                     <div className='flex flex-row mt-4'>
                         <img className='w-16 h-16 mr-4' src='https://www.simplilearn.com/ice9/free_resources_article_thumb/How_to_become_a_marketing_manager.jpg' />

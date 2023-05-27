@@ -2,6 +2,7 @@ import icon2 from '../icons/electrician5.png'
 import icon1 from '../icons/siren.png'
 import icon4 from '../icons/multimeter.png'
 import icon3 from '../icons/wire.png'
+import AOS from 'aos';
 const Services = () => {
     const object = [
         {
@@ -30,13 +31,14 @@ const Services = () => {
         }
     ]
     return (
-        <div className='container py-12 flex flex-col-reverse bg-slate-200'>
-            <div className='flex flex-col-reverse  '>
+        <div className='px-[1rem] md:px-[2.2rem] lg:px-[17.5vw] py-12 flex flex-col-reverse lg:flex-row lg:justify-between md:justify-between bg-slate-200' data-aos="fade-up" data-aos-duration="1000"
+            data-aos-easing="ease-in-out">
+            <div className='flex flex-col-reverse  lg:w-[40%] lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 gap-3'>
                 {/* <div className='border'> */}
                 {
                     object.map((item) => {
                         return (
-                            <div key={item.id} className='border mt-12'>
+                            <div key={item.id} className='border mt-12 '>
                                 <div className='absolute ml-6 p-2 bg-orange-500 border-4 border-orange-500 border-r-blue-950 border-b-blue-950'>
                                     <img src={item.img} className='w-[60px] h-[60px]' style={{ color: 'white' }} />
                                 </div>
@@ -51,8 +53,8 @@ const Services = () => {
 
                 {/* </div> */}
             </div>
-            <div>
-                <h1 className='border  flex justify-center text-xl font-bold italic'>Our <span className='text-orange-500 ml-1'>Services.</span></h1>
+            <div className='lg:w-[50%]'>
+                <h1 className='border  flex justify-center md:justify-start lg:justify-start text-xl font-bold italic'>Our <span className='text-orange-500 ml-1'>Services.</span></h1>
                 <h1 className=' mt-4 font-bold text-3xl text-slate-800'>Services We <br /><span className='text-orange-500'>Provide</span></h1>
                 <div className='text-[14px] border-4 border-slate-200 mt-6 mb-8 border-l-orange-500 pl-2'>
                     <h1>Energetically create turnkey the box thicompliant applications. Rapidousily</h1>

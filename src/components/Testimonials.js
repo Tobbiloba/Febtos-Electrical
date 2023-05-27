@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import AOS from 'aos';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 // import "./styles.css";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation, EffectCube } from "swiper";
 
 const Testimonials = () => {
     const customerReview = [
@@ -94,16 +94,20 @@ const Testimonials = () => {
             name: 'Diya Sanjay'
         }
     ]
+    const [currentReview, setCurrentReview] = useState(1)
 
+    useEffect(() => {
+
+    }, [currentReview])
     return (
-        <div className="container flex flex-col py-6">
-            <div className="flex flex-col">
+        <div className="px-[1rem] md:px-[2.2rem] lg:px-[15vw] lg:justify-between flex flex-col py-6 lg:flex-row">
+            <div className="flex flex-col lg:w-[45%]" data-aos="fade-right">
                 <div>
-                    <h1 className="flex justify-center text-xl font-bold italic">What our customers say about us</h1>
-                    <h1 className="mt-4 font-bold text-2xl text-center text-slate-800">Testimonials</h1>
+                    <h1 className="flex justify-center lg:justify-start text-xl font-bold italic">What our customers say about us</h1>
+                    <h1 className="mt-4 font-bold text-2xl text-center lg:text-left text-slate-800">Testimonials</h1>
                 </div>
                 <div className="mt-12">
-                    <div>
+                    <div className="flex lg:hidden">
                         <Swiper
                             spaceBetween={30}
                             // slidesPerView={2}
@@ -156,16 +160,38 @@ const Testimonials = () => {
                             }
                         </div>
                     </div> */}
+                    <div>
+                        <div>
+                            <div>
+                                <div className="border-4 pl-3 border-white border-l-orange-500">
+                                    <h1 className="text-[14px] font-mono clas">{customerReview[currentReview - 1].review}</h1>
+                                </div>
+
+                                <h1 className="mt-4 text-xl font-bold font-mono">{customerReview[currentReview - 1].name}</h1>
+                                <h1>{customerReview[currentReview - 1].job}</h1>
+                            </div>
+                            <div className="flex flex-row mt-6">
+                                {customerReview.map((item) => {
+                                    return (
+                                        <div className="mr-4 border cursor-pointer" onClick={() => { setCurrentReview(item.id) }}>
+                                            <img src={item.img} className={`w-[120px] h-[130px]  ${currentReview === item.id ? 'grayscale-0 border-2 border-white border-r-orange-500 border-b-orange-500' : 'grayscale'}`} />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
 
                 </div>
 
             </div>
-            <div className="mt-8">
+            <div className="mt-8 lg:w-[45%] lg:mt-0" data-aos="fade-left">
                 <div className="">
-                    <h1 className="flex justify-center text-xl font-bold italic">Our Experts</h1>
-                    <h1 className="mt-1 font-bold text-2xl text-center text-slate-800">Team</h1>
+                    <h1 className="flex justify-center text-xl lg:justify-start font-bold italic">Our Experts</h1>
+                    <h1 className="mt-1 font-bold text-2xl text-center lg:text-left text-slate-800">Team</h1>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 lg:hidden ">
                     <Swiper
                         spaceBetween={30}
                         centeredSlides={true}
@@ -197,6 +223,23 @@ const Testimonials = () => {
 
 
 
+                    </Swiper>
+                </div>
+                <div className="hidden lg:flex mt-8">
+                    <Swiper
+                        slidesPerView={2}
+                        spaceBetween={30}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
+                    >
+                        {workers.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <img src={item.img} alt={`Work ${item.id}`} className="h-[300px]" />
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import AOS from 'aos';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,7 +11,7 @@ import "swiper/css/pagination";
 import "./styles.css";
 
 // import required modules
-import { EffectCube, Pagination } from "swiper";
+import { EffectCube, Pagination, Navigation } from "swiper";
 
 const Works = () => {
     const object = [
@@ -67,6 +68,7 @@ const Works = () => {
     ]
     const [current, setCurrent] = useState('all');
     const [images, setImages] = useState(object);
+    // console.log(images)
 
     function findSectionsById(section, objectArray) {
         return objectArray.filter((item) => item.section === section);
@@ -84,7 +86,7 @@ const Works = () => {
     }, [current]);
 
     return (
-        <div className="container py-8 flex-col">
+        <div className="px-[1rem] max-w[100vw] md:px-[2.2rem] lg:px-[17.5vw] py-8 flex-col" data-aos="fade-up">
             <div>
                 <h1 className="flex justify-center text-xl font-bold italic">
                     Our <span className="ml-1 text-orange-500">Work</span>
@@ -97,33 +99,33 @@ const Works = () => {
                 </p>
             </div>
             <div className="mt-6">
-                <div className="flex flex-row justify-evenly">
+                <div className="flex flex-row justify-evenly lg:justify-center">
                     <h1
-                        className={`text-[16px] ${current === 'all' ? 'text-orange-500 font-bold' : 'text-slate-700'}`}
+                        className={`text-[16px] lg:mr-8 ${current === 'all' ? 'text-orange-500 font-bold' : 'text-slate-700'}`}
                         onClick={() => setCurrent('all')}
                     >
                         All
                     </h1>
                     <h1
-                        className={`text-[16px] ${current === 'electrical' ? 'text-orange-500 font-bold' : 'text-slate-700'}`}
+                        className={`text-[16px] lg:mr-8 ${current === 'electrical' ? 'text-orange-500 font-bold' : 'text-slate-700'}`}
                         onClick={() => setCurrent('electrical')}
                     >
                         Electrical
                     </h1>
                     <h1
-                        className={`text-[16px] ${current === 'maintenance' ? 'text-orange-500 font-bold' : 'text-slate-700'}`}
+                        className={`text-[16px] lg:mr-8 ${current === 'maintenance' ? 'text-orange-500 font-bold' : 'text-slate-700'}`}
                         onClick={() => setCurrent('maintenance')}
                     >
                         Maintenance
                     </h1>
                     <h1
-                        className={`text-[16px] ${current === 'smart' ? 'text-orange-500 font-bold' : 'text-slate-700'}`}
+                        className={`text-[16px] lg:mr-8 ${current === 'smart' ? 'text-orange-500 font-bold' : 'text-slate-700'}`}
                         onClick={() => setCurrent('smart')}
                     >
                         Smart Home
                     </h1>
                 </div>
-                <div className="mt-6">
+                <div className="mt-6 lg:hidden">
                     <Swiper
                         effect={"cube"}
                         grabCursor={true}
@@ -144,6 +146,97 @@ const Works = () => {
                         ))}
 
                     </Swiper>
+                </div>
+                <div className="hidden lg:flex mt-12">
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={30}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
+                    >
+                        {images.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <img src={item.img} alt={`Work ${item.id}`} className="h-[400px]" />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
+                    {/* <Swiper
+                        effect={"cube"}
+                        grabCursor={true}
+                        slidesPerView={3}
+                        cubeEffect={{
+                            shadow: true,
+                            slideShadows: true,
+                            shadowOffset: 20,
+                            shadowScale: 0.94,
+                        }}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        // pagination={true}
+                        modules={[EffectCube, Pagination, Navigation]}
+                        className="mySwiper"
+                    >
+                        {images.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <img src={item.img} alt={`Work ${item.id}`} className="h-[400px] rounded-xl" />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper> */}
+                    {/* <Swiper
+                        effect={"cube"}
+                        grabCursor={true}
+                        slidesPerView={3}
+                        cubeEffect={{
+                            shadow: true,
+                            slideShadows: true,
+                            shadowOffset: 20,
+                            shadowScale: 0.94,
+                        }}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        // navigation={true}
+                        // pagination={true}
+                        modules={[EffectCube, Pagination,]}
+                        className="mySwiper"
+                    >
+                        {images.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <img src={item.img} alt={`Work ${item.id}`} className="h-[400px] rounded-xl" />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper> */}
+                    {/* <Swiper
+                        effect={"cube"}
+                        grabCursor={true}
+                        slidesPerView={3}
+                        cubeEffect={{
+                            shadow: true,
+                            slideShadows: true,
+                            shadowOffset: 20,
+                            shadowScale: 0.94,
+                        }}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        // pagination={true}
+                        modules={[EffectCube, Pagination, Navigation]}
+                        className="mySwiper"
+                    >
+                        {images.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <img src={item.img} alt={`Work ${item.id}`} className="h-[400px] border" />
+                            </SwiperSlide>
+                        ))}
+
+                    </Swiper> */}
                 </div>
             </div>
         </div>
